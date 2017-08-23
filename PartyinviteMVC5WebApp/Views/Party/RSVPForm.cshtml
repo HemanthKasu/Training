@@ -1,0 +1,56 @@
+﻿@model PartyinviteMVC5WebApp.Models.GuestResponse
+@{
+    
+    ViewBag.Title = "RSPForm";
+}
+
+<h3>RSVPForm</h3>
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        <div>
+            @Html.ValidationSummary(false,"",new {@Class ="text-danger"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c=>c.FirstName)
+            @Html.TextBoxFor(c => c.FirstName, new { @Class = "form-control"})
+            @Html.ValidationMessageFor(c=>c.FirstName,null,new{@Class="test-danger"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c=>c.LasttName)
+            @Html.TextBoxFor(c => c.LasttName, new { @Class = "form-control"})
+            @Html.ValidationMessageFor(c=>c.LasttName,null,new{@Class="test-danger"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c=>c.Phone)
+            @Html.TextBoxFor(c => c.Phone, new { @Class = "form-control"})
+            @Html.ValidationMessageFor(c=>c.Phone,null,new{@Class="test-danger"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c=>c.Email)
+            @Html.TextBoxFor(c => c.Email, new { @Class = "form-control"})
+            @Html.ValidationMessageFor(c=>c.Email,null,new{@Class="test-danger"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c=>c.age)
+            @Html.TextBoxFor(c => c.age, new { @Class = "form-control"})
+            @Html.ValidationMessageFor(c=>c.age,null,new{@Class="test-danger"})
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(c=>c.WillAttend)
+            @Html.DropDownListFor(c => c.WillAttend,
+              new[] { new SelectListItem { Text = "Yes, I Will", Value = bool.TrueString }, new SelectListItem { Text = "No, I Willn't", Value = bool.FalseString } }, "Choose one",
+              new { @Class = "form-control" })
+            
+
+        </div>
+        
+        <div>
+            <input type="submit" value="RSVPForm"class="btn btn-primary"/> 
+
+        </div>
+        
+    }
+
+
+</div>
